@@ -10,8 +10,6 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 from launch.actions import TimerAction
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
-from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 
 def generate_launch_description():
@@ -44,16 +42,6 @@ def generate_launch_description():
         arguments=["-d", os.path.join(rover30_description_dir, "rviz", "display.rviz")],
     )
 
-    gzserver_process = ExecuteProcess(
-        cmd=["gzserver", "--verbose"],
-        output="screen"
-    )
-
-    gzclient_process = ExecuteProcess(
-        cmd=["gzclient"],
-        output="screen"
-    )
-
     spawn_entity = Node(
         package="gazebo_ros",
         executable="spawn_entity.py",
@@ -65,28 +53,21 @@ def generate_launch_description():
         output="screen"
     )
 
-    gazebo = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
-             )
+    gazebo = ExecuteProcess(
+        cmd=["gazebo", "--verbose", "-s", "libgazebo_ros_factory.so"],
+        output="screen"
+    )
 
 
     return LaunchDescription([
         model_arg,
         joint_state_publisher_gui_node,
         robot_state_publisher_node,
-        gzserver_process,
-        gzclient_process,
+        rviz_node,
+        gazebo,
         TimerAction(
             period=3.0,
             actions=[spawn_entity]
         ),
-        #gazebo,
-        #spawn_entity,
-        #TimerAction(
-        #    period=60.0,
-        #    actions=[spawn_entity]
-        #),
-        rviz_node
 
     ])

@@ -1,0 +1,166 @@
+<sdf version='1.7'>
+  <model name='rover30'>
+    <link name='base_footprint'>
+      <inertial>
+        <pose>1.11744 0.170819 9.26788 0 -0 0</pose>
+        <mass>28.1</mass>
+        <inertia>
+          <ixx>740.703</ixx>
+          <ixy>-11.1563</ixy>
+          <ixz>9.57509</ixz>
+          <iyy>865.596</iyy>
+          <iyz>11.7274</iyz>
+          <izz>1369.14</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+        <pose>0 0 10.033 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rover30_description/meshes/rover_body.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__laser_frame_collision_1'>
+        <pose>11 0 20.033 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>1</length>
+            <radius>1</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__left_front_wheel_collision_2'>
+        <pose>12.5 9.4 7.033 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>2 2 2</scale>
+            <uri>model://rover30_description/meshes/kolo.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__left_rear_wheel_collision_3'>
+        <pose>-5.2 9.4 7.033 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>2 2 2</scale>
+            <uri>model://rover30_description/meshes/kolo.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__right_front_wheel_collision_4'>
+        <pose>12.5 -8.2 7.033 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>2 2 2</scale>
+            <uri>model://rover30_description/meshes/kolo.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__right_rear_wheel_collision_5'>
+        <pose>-5.2 -8.2 7.033 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>2 2 2</scale>
+            <uri>model://rover30_description/meshes/kolo.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_footprint_fixed_joint_lump__base_link_visual'>
+        <pose>0 0 10.033 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rover30_description/meshes/rover_body.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__laser_frame_visual_1'>
+        <pose>11 0 20.033 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>1</length>
+            <radius>1</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__left_front_wheel_visual_2'>
+        <pose>12.5 9.4 7.033 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>2 2 2</scale>
+            <uri>model://rover30_description/meshes/kolo.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__left_rear_wheel_visual_3'>
+        <pose>-5.2 9.4 7.033 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>2 2 2</scale>
+            <uri>model://rover30_description/meshes/kolo.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__right_front_wheel_visual_4'>
+        <pose>12.5 -8.2 7.033 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>2 2 2</scale>
+            <uri>model://rover30_description/meshes/kolo.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__right_rear_wheel_visual_5'>
+        <pose>-5.2 -8.2 7.033 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>2 2 2</scale>
+            <uri>model://rover30_description/meshes/kolo.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <sensor name='laser' type='ray'>
+        <visualize>1</visualize>
+        <update_rate>10</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <min_angle>-3.14</min_angle>
+              <max_angle>3.14</max_angle>
+              <resolution>1</resolution>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.3</min>
+            <max>25</max>
+          </range>
+        </ray>
+        <plugin name='laser_controller' filename='libgazebo_ros_ray_sensor.so'>
+          <ros>
+            <argument>~/out:=scan</argument>
+          </ros>
+          <output_type>sensor_msgs/LaserScan</output_type>
+          <frame_name>laser_frame</frame_name>
+        </plugin>
+        <pose>11 0 20.033 0 -0 0</pose>
+      </sensor>
+    </link>
+  </model>
+</sdf>

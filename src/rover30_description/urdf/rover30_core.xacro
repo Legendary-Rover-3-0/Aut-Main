@@ -6,11 +6,25 @@
 
     <link name="base_link">
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 5" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://rover30_description/meshes/rover_body.stl"/>
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0 0 5" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/rover_body.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 5" rpy="0 0 0"/>
+            <mass value="20.0"/>
+            <inertia 
+            ixx="1.0" ixy="1.0" ixz="1.0"
+            iyy="1.0" iyz="1.0"
+            izz="1.0" />
+        </inertial>
      </link>
 
     <link name="right_front_wheel">
@@ -23,6 +37,20 @@
                 <color rgba="0.0 1.0 0.0 1.0"/>
             </material>
         </visual>
+        <collision>
+            <origin xyz="6.25 -4.1 -1.5" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="6.25 -4.1 -1.5" rpy="0 0 0"/>
+            <mass value="2.0"/>
+            <inertia 
+              ixx="0.01" ixy="0.0" ixz="0.0"
+              iyy="0.01" iyz="0.0"
+              izz="0.01"/>
+          </inertial>
     </link>
 
     <link name="left_front_wheel">
@@ -35,6 +63,20 @@
                 <color rgba="0.0 1.0 0.0 1.0"/>
             </material>
         </visual>
+        <collision>
+            <origin xyz="6.25 4.7 -1.5" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="6.25 4.7 -1.5" rpy="0 0 0"/>
+            <mass value="2.0"/>
+            <inertia 
+              ixx="0.01" ixy="0.0" ixz="0.0"
+              iyy="0.01" iyz="0.0"
+              izz="0.01"/>
+          </inertial>
     </link>
 
     <link name="right_rear_wheel">
@@ -47,6 +89,20 @@
                 <color rgba="0.0 1.0 0.0 1.0"/>
             </material>
         </visual>
+        <collision>
+            <origin xyz="-2.6 -4.1 -1.5" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-2.6 -4.1 -1.5" rpy="0 0 0"/>
+            <mass value="2.0"/>
+            <inertia 
+              ixx="0.01" ixy="0.0" ixz="0.0"
+              iyy="0.01" iyz="0.0"
+              izz="0.01"/>
+          </inertial>
     </link>
     
     <link name="left_rear_wheel">
@@ -59,27 +115,41 @@
                 <color rgba="0.0 1.0 0.0 1.0"/>
             </material>
         </visual>
+        <collision>
+            <origin xyz="-2.6 4.7 -1.5" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-2.6 4.7 -1.5" rpy="0 0 0"/>
+            <mass value="2.0"/>
+            <inertia 
+              ixx="0.01" ixy="0.0" ixz="0.0"
+              iyy="0.01" iyz="0.0"
+              izz="0.01"/>
+          </inertial>
     </link>
 
 
      <joint name="base_joint" type="fixed">
         <parent link="base_footprint"/>
         <child link="base_link"/>
-        <origin xyz="0 0 0.033" rpy="0 0 0"/>
+        <origin xyz="0 0 5.033" rpy="0 0 0"/>
      </joint>
 
 
-    <joint name="rww" type="fixed">
+    <joint name="rfw" type="fixed">
         <parent link="base_link"/>
         <child link="right_front_wheel"/>
-        <origin xyz="6.25 -4.1 -1.5" rpy="0 0 0"/>
+        <origin xyz="6.25 -4.1 3.5" rpy="0 0 0"/>
     </joint>
 
 
     <joint name="lfw" type="fixed">
         <parent link="base_link"/>
         <child link="left_front_wheel"/>
-        <origin xyz="6.25 4.7 -1.5" rpy="0 0 0"/>
+        <origin xyz="6.25 4.7 3.5" rpy="0 0 0"/>
     </joint>
 
 
@@ -87,14 +157,14 @@
     <joint name="rrw" type="fixed">
         <parent link="base_link"/>
         <child link="right_rear_wheel"/>
-        <origin xyz="-2.6 -4.1 -1.5" rpy="0 0 0"/>
+        <origin xyz="-2.6 -4.1 3.5" rpy="0 0 0"/>
     </joint>
 
 
     <joint name="lrw" type="fixed">
         <parent link="base_link"/>
         <child link="left_rear_wheel"/>
-        <origin xyz="-2.6 4.7 -1.5" rpy="0 0 0"/>
+        <origin xyz="-2.6 4.7 3.5" rpy="0 0 0"/>
     </joint>
 
 
