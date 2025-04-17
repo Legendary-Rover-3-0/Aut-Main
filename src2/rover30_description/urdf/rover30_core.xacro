@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+
+<robot name="rover30" xmlns:xacro="http://ros.org/wiki/xacro">
+    
+    <link name="base_footprint"/>
+
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/rover_body.stl"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/rover_body.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="20.0"/>
+            <inertia 
+            ixx="1.0" ixy="1.0" ixz="1.0"
+            iyy="1.0" iyz="1.0"
+            izz="1.0" />
+        </inertial>
+     </link>
+
+    <link name="right_front_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="2.0"/>
+            <inertia 
+              ixx="0.01" ixy="0.0" ixz="0.0"
+              iyy="0.01" iyz="0.0"
+              izz="0.01"/>
+          </inertial>
+    </link>
+
+    <link name="left_front_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="2.0"/>
+            <inertia 
+              ixx="0.01" ixy="0.0" ixz="0.0"
+              iyy="0.01" iyz="0.0"
+              izz="0.01"/>
+          </inertial>
+    </link>
+
+    <link name="right_rear_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="2.0"/>
+            <inertia 
+              ixx="0.01" ixy="0.0" ixz="0.0"
+              iyy="0.01" iyz="0.0"
+              izz="0.01"/>
+          </inertial>
+    </link>
+    
+    <link name="left_rear_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rover30_description/meshes/kolo.stl" scale="2.0 2.0 2.0"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="2.0"/>
+            <inertia 
+              ixx="0.01" ixy="0.0" ixz="0.0"
+              iyy="0.01" iyz="0.0"
+              izz="0.01"/>
+          </inertial>
+    </link>
+
+    <link name="rfwOZ_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="lfwOZ_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="rrwOZ_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="lrwOZ_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+     <joint name="base_joint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+     </joint>
+
+    <joint name="rfwOZ_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="rfwOZ_link"/>
+        <origin xyz="8.79064 -8.67057 -4.79985" rpy="0 0 0"/>
+        <limit effort="30" velocity="0.5" lower="-1.5707963268" upper="1.5707963268"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="lfwOZ_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="lfwOZ_link"/>
+        <origin xyz="8.90904 8.67006 -4.74325" rpy="0 0 0"/>
+        <limit effort="30" velocity="0.5" lower="-1.5707963268" upper="1.5707963268"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="rrwOZ_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="rrwOZ_link"/>
+        <origin xyz="-8.90903 -8.67023 -4.74616" rpy="0 0 0"/>
+        <limit effort="30" velocity="0.5" lower="-1.5707963268" upper="1.5707963268"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="lrwOZ_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="lrwOZ_link"/>
+        <origin xyz="-8.7909 8.67019 -4.80209" rpy="0 0 0"/>
+        <limit effort="30" velocity="0.5" lower="-1.5707963268" upper="1.5707963268"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="rfw" type="continuous">
+        <parent link="rfwOZ_link"/>
+        <child link="right_front_wheel"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="lfw" type="continuous">
+        <parent link="lfwOZ_link"/>
+        <child link="left_front_wheel"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="rrw" type="continuous">
+        <parent link="rrwOZ_link"/>
+        <child link="right_rear_wheel"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="lrw" type="continuous">
+        <parent link="lrwOZ_link"/>
+        <child link="left_rear_wheel"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    
+</robot>

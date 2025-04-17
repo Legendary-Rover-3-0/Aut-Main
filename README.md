@@ -2,6 +2,11 @@
 Repository contains autonomy software for Rover 3.0 made by Legendary Rover Team.
 
 ## Overview
+### `src2` to drugi `src` ale ze zmieniona architektura lazika troche, i dodane krecenie kolami w osi Z, i zmienione punkty odniesienia meshow, dlatego architektura zmieniona troche
+
+  <ul>
+    <li> Usun jeden z folderow `src` przed robieniem `colcon build`  </li>
+  </ul>
 
 ### Instrukcja uruchamiania modelu w Gazebo
 
