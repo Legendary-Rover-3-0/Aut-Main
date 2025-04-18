@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<robot name="rover30" xmlns:xacro="http://ros.org/wiki/xacro">
+    <gazebo reference="right_front_wheel"> 
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+    
+    <gazebo reference="left_front_wheel"> 
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo reference="right_rear_wheel"> 
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+    
+    <gazebo reference="left_rear_wheel"> 
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo reference="rfwOZ_link">
+        <maxVel>0.1</maxVel>
+    </gazebo>
+
+    <gazebo reference="lfwOZ_link">
+        <maxVel>0.1</maxVel>
+    </gazebo>
+
+    <gazebo reference="rrwOZ_link">
+        <maxVel>0.1</maxVel>
+    </gazebo>
+
+    <gazebo reference="lrwOZ_link">
+        <maxVel>0.1</maxVel>
+    </gazebo>
+</robot>

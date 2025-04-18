@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
 <robot name="rover30" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:include filename="$(find rover30_description)/urdf/rover30_gz.xacro"/>
 
-    <xacro:include filename="rover30_core.xacro"/>
+    <xacro:include filename="$(find rover30_description)/urdf/rover30_core.xacro"/>
 
-    <xacro:include filename="lidar.xacro"/>
-
+    <xacro:include filename="$(find rover30_description)/urdf/lidar.xacro"/>
 </robot>
